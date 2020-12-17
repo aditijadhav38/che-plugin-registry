@@ -37,5 +37,5 @@ jobs:
           push: false
           tags: |
             quay.io/eclipse/che-plugin-registry:nightly
-            quay.io/eclipse/che-plugin-registry:${GITHUB_SHA}
+            quay.io/eclipse/che-plugin-registry:latest
 
