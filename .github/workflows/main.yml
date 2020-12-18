@@ -39,7 +39,7 @@ jobs:
       - name: Build and push plugin registry image
         run: |
           SHORT_SHA1=$(git rev-parse --short HEAD)
-          docker buildx build . --platform=linux/arm64,linux/s390x --tag quay.io/aditijadhav38/che-plugin-registry:nightly --tag quay.io/aditijadhav38/che-plugin-registry:${SHORT_SHA1} --push --no-cache 
+          docker buildx build . --platform=linux/arm64,linux/s390x --tag quay.io/aditi-che/che-plugin-registry:nightly --tag quay.io/aditi-che/che-plugin-registry:${SHORT_SHA1} --push --no-cache 
           
           #docker build -t che-plugin-registry -f ./build/dockerfiles/Dockerfile --target registry .
           #docker tag che-plugin-registry quay.io/eclipse/che-plugin-registry:nightly
