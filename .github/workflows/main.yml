@@ -32,6 +32,7 @@ jobs:
         id: prep
         run:
           SHORT_SHA1=$(git rev-parse --short HEAD)
+          echo ::set-output name=short_sha1::${SHORT_SHA1}
                 
       - name: Build and push plugin registry image
         uses: docker/build-push-action@v2
@@ -42,5 +43,5 @@ jobs:
           push: false
           tags: |
             quay.io/eclipse/che-plugin-registry:nightly
-            quay.io/eclipse/che-plugin-registry:${{ steps.prep.SHORT_SHA1 }}
+            quay.io/eclipse/che-plugin-registry:${{ steps.prep.output.short_sha1 }}
 
