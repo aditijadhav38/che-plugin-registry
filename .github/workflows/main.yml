@@ -27,6 +27,11 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
+        
+      - name: Prepare
+        id: prep
+        run:
+          SHORT_SHA1=$(git rev-parse --short HEAD)
                 
       - name: Build and push plugin registry image
         uses: docker/build-push-action@v2
@@ -37,5 +42,5 @@ jobs:
           push: false
           tags: |
             quay.io/eclipse/che-plugin-registry:nightly
-            quay.io/eclipse/che-plugin-registry:latest
+            quay.io/eclipse/che-plugin-registry:${{ steps.prep.SHORT_SHA1 }}
 
