@@ -49,7 +49,7 @@ jobs:
           file: ./build/dockerfiles/Dockerfile
           target: registry
           platforms: linux/amd64,linux/s390x
-          tags: quay.io/aditi-che/che-plugin-registry:nightly,quay.io/aditi-che/che-plugin-registry:${{ steps.prep.outputs.short_sha1 }}
+          tags: quay.io/aditijadhav38/che-plugin-registry:nightly,quay.io/aditijadhav38/che-plugin-registry:${{ steps.prep.outputs.short_sha1 }}
           push: true          
           #docker build -t che-plugin-registry -f ./build/dockerfiles/Dockerfile --target registry .
           #docker tag che-plugin-registry quay.io/eclipse/che-plugin-registry:nightly
