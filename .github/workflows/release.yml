@@ -12,7 +12,7 @@ name: Release Che Plugin Registry
 on:
   push:
     branches: 
-      - release
+      - master
     paths:
       - VERSION
 
