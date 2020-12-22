@@ -10,7 +10,7 @@
 name: Image Build PR check
 
 on:   
-  pull_request:
+  push:
       branches: 
         - master
 
