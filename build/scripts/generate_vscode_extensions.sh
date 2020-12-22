@@ -14,6 +14,7 @@ set -e
 cd /
 cd /tools/build
 echo "Get Yarn dependencies..."
+yarn config set network-timeout 600000 -g
 yarn
 echo "Build tooling..."
 SKIP_FORMAT=true SKIP_LINT=true SKIP_TEST=true yarn build
