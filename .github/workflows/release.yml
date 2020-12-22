@@ -28,9 +28,7 @@ jobs:
         run: |
           SHORT_SHA1=$(git rev-parse --short HEAD)
           echo ::set-output name=short_sha1::${SHORT_SHA1}
-          VERSION=$(head -n 1 VERSION)
-          echo ::set-output name=version::${VERSION}
-          
+                    
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
@@ -54,13 +52,16 @@ jobs:
       - name: Build and push images
         id: docker_build
         uses: docker/build-push-action@v2
+        env:
+        - VERSION=$(head -n 1 VERSION)
+        - IMAGE=che-plugin-registry
+        - DOCKERFILE_PATH=./build/dockerfiles/Dockerfile
         with:
           context: .
-          file: ./build/dockerfiles/Dockerfile
+          file: ${DOCKERFILE_PATH}
           target: registry
           platforms: linux/amd64,linux/s390x
-          tags: quay.io/aditijadhav38/che-plugin-registry:${{ steps.prep.outputs.short_sha1 }},quay.io/aditijadhav38/che-plugin-registry:${{ steps.prep.outputs.version }}
-          push: true
+          tags: quay.io/aditijadhav38/${IMAGE}:${{ steps.prep.outputs.short_sha1 }},quay.io/aditijadhav38/${IMAGE}:${VERSION}
       
           #SHORT_SHA1=$(git rev-parse --short HEAD)
           #VERSION=$(head -n 1 VERSION)
