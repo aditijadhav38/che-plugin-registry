@@ -68,20 +68,4 @@ jobs:
       with:
         name: plugin-registry-content-${{matrix.dist}}
         path: content-${{matrix.dist}}.tgz
-  pull-request-info:
-    if: ${{ github.event_name == 'pull_request' }}
-    runs-on: ubuntu-20.04
-    needs: [image-build]
-    steps:
-     - name: Store PR info
-       run: |
-         echo "${{ github.event.number }}" > PR_NUMBER
-         echo "${{ github.event.pull_request.head.sha }}" > PR_SHA
-     - uses: actions/upload-artifact@v2
-       with:
-         name: pull-request-number
-         path: PR_NUMBER
-     - uses: actions/upload-artifact@v2
-       with:
-         name: pull-request-sha
-         path: PR_SHA
+  
