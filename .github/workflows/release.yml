@@ -59,7 +59,7 @@ jobs:
           file: ./build/dockerfiles/Dockerfile
           target: registry
           platforms: linux/amd64,linux/s390x
-          tags: quay.io/aditi-che/che-plugin-registry:${{ steps.prep.outputs.short_sha1 }},quay.io/aditi-che/che-plugin-registry:${{ steps.prep.outputs.version }}
+          tags: quay.io/aditijadhav38/che-plugin-registry:${{ steps.prep.outputs.short_sha1 }},quay.io/aditijadhav38/che-plugin-registry:${{ steps.prep.outputs.version }}
           push: true
       
           #SHORT_SHA1=$(git rev-parse --short HEAD)
