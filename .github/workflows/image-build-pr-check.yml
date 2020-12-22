@@ -45,7 +45,7 @@ jobs:
         cache-from: "quay.io/aditijadhav38/che-plugin-registry:nightly"
         push: false
         
-    - if: ${{ matrix.dist == 'rhel' }}
+    - if: false == ${{ matrix.dist == 'alpine' }}
       name: image-build for rhel
       uses: docker/build-push-action@v2
       with:
