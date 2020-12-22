@@ -10,7 +10,7 @@
 name: Image Build PR check
 
 on:   
-  push:
+  pull_request:
       branches: 
         - master
 
@@ -38,7 +38,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         timeout_minutes: 1
-        command: yarn
+        command: node lib/entrypoint.js --output-folder:/build
         context: .
         file: ./build/dockerfiles/Dockerfile
         target: registry
@@ -47,10 +47,12 @@ jobs:
         cache-from: "quay.io/aditijadhav38/che-plugin-registry:nightly"
         push: false
         
-    - name: image-build for alpine
+    - name: image-build for rhel
       if: ${{ matrix.dist == 'rhel' }}
       uses: docker/build-push-action@v2
       with:
+        timeout_minutes: 1
+        command: node lib/entrypoint.js --output-folder:/build
         context: .
         file: ./build/dockerfiles/rhel.Dockerfile
         target: registry
