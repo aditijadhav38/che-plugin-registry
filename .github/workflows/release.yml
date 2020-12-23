@@ -54,8 +54,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         env: |
-         - IMAGE=che-plugin-registry
-         - DOCKERFILE_PATH=./build/dockerfiles/Dockerfile
+          IMAGE=che-plugin-registry
+          DOCKERFILE_PATH=./build/dockerfiles/Dockerfile
         with:
           context: .
           file: ${DOCKERFILE_PATH}
