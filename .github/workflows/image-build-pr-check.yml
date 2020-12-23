@@ -44,6 +44,10 @@ jobs:
         tags: che-plugin-registry-image
         cache-from: "quay.io/aditijadhav38/che-plugin-registry:nightly"
         push: false
+      
+    - name: Installing yq dependency for rhel-build
+      run: |
+        sudo pip install yq
         
     - if: false == ${{ matrix.dist == 'alpine' }}
       name: image-build for rhel
