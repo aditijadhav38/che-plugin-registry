@@ -13,8 +13,7 @@ on:
   push:
     branches: 
       - master
-    paths:
-      - VERSION
+    
 
 jobs:
   release-build-publish:
