@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: EPL-2.0
 #
 set -x
-
+sudo rm -r /var/cache/dnf 
 dnf --disablerepo=fedora30-updates --disablerepo=fedora30-secondary-updates install -y findutils bash wget yum gzip tar python3-six python3-pip && dnf -y clean all
 dnf --enablerepo=fedora30-updates --enablerepo=fedora30-secondary-updates install -y skopeo jq && dnf update -y skopeo containers-common jq oniguruma && dnf -y clean all
 # install yq (depends on jq and pyyaml - if jq and pyyaml not already installed, this will try to compile it)
