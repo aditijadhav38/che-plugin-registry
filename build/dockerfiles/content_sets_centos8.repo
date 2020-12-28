@@ -1,25 +1,11 @@
-[FTP3install-Base]
-name=ftp3install OS repository
-baseurl=ftp://aborkar:ab04ka4123@ftp3install.linux.ibm.com/redhat/yum/system-z/8/8.2/s390x/baseos/os/
-gpgcheck=0
+[centos-8-for-appstream]
+name=centos-8-appstream
+baseurl=http://mirror.centos.org/centos-8/8/AppStream/$basearch/os
 enabled=1
-[FTP3install-appstream]
-name=ftp3install appstream repository
-baseurl=ftp://aborkar:ab04ka4123@ftp3install.linux.ibm.com/redhat/yum/system-z/8/8.2/s390x/appstream/os
 gpgcheck=0
+ 
+[centos-8-for-baseos]
+name=centos-8-baseos
+baseurl=http://mirror.centos.org/centos-8/8/BaseOS/$basearch/os
 enabled=1
-[FTP3install-supplementary]
-name=ftp3install supplementary repository
-baseurl=ftp://aborkar:ab04ka4123@ftp3install.linux.ibm.com/redhat/yum/system-z/8/8.2/s390x/supplementary/os
 gpgcheck=0
-enabled=1
-[FTP3install-codeready-builder]
-name=ftp3install codeready-builer  repository
-baseurl=ftp://aborkar:ab04ka4123@ftp3install.linux.ibm.com/redhat/yum/system-z/8/8.2/s390x/codeready-builder/os
-gpgcheck=0
-enabled=1
-[FTP3install-codeready-builder-8]
-name=ftp3install codeready-builer  repository 8
-baseurl=ftp://aborkar:ab04ka4123@ftp3install.linux.ibm.com/redhat/yum/system-z/8/8/s390x/codeready-builder/os
-gpgcheck=0
-enabled=1
